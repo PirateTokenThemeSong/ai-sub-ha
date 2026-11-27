@@ -97,6 +97,10 @@ async def test_setup_entry_creates_entities(
     assert usage.attributes["used"] == 30.0
     assert hass.states.get("sensor.acme_remaining_balance").state == "55.0"
     assert hass.states.get("sensor.acme_plan").state == "Pro"
+    pace = hass.states.get("sensor.acme_suggested_pace")
+    assert float(pace.state) > 0
+    assert pace.attributes["unit_of_measurement"] == "USD/day"
+    assert "device_class" not in pace.attributes
     assert hass.states.get("sensor.acme_weekly_usage").state == "57.14"
     assert hass.states.get("sensor.acme_daily_usage") is not None
     assert hass.states.get("binary_sensor.acme_limit_reached").state == "off"

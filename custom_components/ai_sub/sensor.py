@@ -59,8 +59,13 @@ class _MonetarySensor(AiSubEntity, SensorEntity):
         return self.budget.get("currency") or DEFAULT_CURRENCY
 
 
-class SuggestedPaceSensor(_MonetarySensor):
-    """How much per day keeps the account on pace for renewal."""
+class SuggestedPaceSensor(AiSubEntity, SensorEntity):
+    """How much per day keeps the account on pace for renewal.
+
+    This is a rate, not money in the account: it carries a "<currency>/day"
+    unit and no monetary device class (Home Assistant only accepts state class
+    ``total`` for monetary sensors, which would be wrong for a pace).
+    """
 
     _attr_translation_key = "suggested_pace"
     _attr_icon = "mdi:speedometer"
@@ -68,6 +73,10 @@ class SuggestedPaceSensor(_MonetarySensor):
 
     def __init__(self, coordinator: AiSubCoordinator) -> None:
         super().__init__(coordinator, "suggested_pace")
+
+    @property
+    def native_unit_of_measurement(self) -> str:
+        return f"{self.budget.get('currency') or DEFAULT_CURRENCY}/day"
 
     @property
     def native_value(self) -> float | None:
