@@ -81,7 +81,8 @@ Entity IDs follow the account login reported by the provider, for example
 
 ## Status
 
-Tested against Command Code's alpha billing API and Home Assistant 2025.1.
+Tested against Command Code's alpha billing API with the 2025.1 test harness
+and running on Home Assistant 2026.11.3.
 Command Code is the only shipped provider, and its API is still labelled alpha:
 if a payload changes, the parsing helpers and their tests are the place to fix
 it. Plan grants live in a table in the provider module, so an unknown plan still
