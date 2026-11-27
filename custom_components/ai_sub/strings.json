@@ -1,0 +1,100 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "AI Sub",
+        "description": "Choose the AI subscription provider you want to track. One entry per account; add the integration again for a second account.",
+        "data": {
+          "provider": "Provider"
+        }
+      },
+      "credentials": {
+        "title": "Connect {provider}",
+        "description": "{hint}\n\nThe key is stored in Home Assistant and only used to read usage and billing for this account.",
+        "data": {
+          "api_key": "API key",
+          "base_url": "API base URL (advanced)"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Reconnect {provider}",
+        "description": "The saved API key was rejected. Paste a fresh key for this account.",
+        "data": {
+          "api_key": "API key",
+          "base_url": "API base URL (advanced)"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "The provider rejected that API key.",
+      "cannot_connect": "Could not reach the provider. Check the key and try again.",
+      "unknown": "Unexpected error.",
+      "wrong_account": "That key belongs to a different account."
+    },
+    "abort": {
+      "already_configured": "This account is already configured.",
+      "reauth_successful": "Account reconnected."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "AI Sub options",
+        "data": {
+          "scan_interval": "Polling interval (seconds)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "suggested_pace": {
+        "name": "Suggested pace"
+      },
+      "max_usage": {
+        "name": "Max usage"
+      },
+      "usage": {
+        "name": "Usage"
+      },
+      "remaining_balance": {
+        "name": "Remaining balance"
+      },
+      "spent": {
+        "name": "Spent"
+      },
+      "daily_usage": {
+        "name": "Daily usage"
+      },
+      "weekly_usage": {
+        "name": "Weekly usage"
+      },
+      "five_hour_usage": {
+        "name": "5-hour usage"
+      },
+      "weekly_max": {
+        "name": "Weekly max"
+      },
+      "five_hour_max": {
+        "name": "5-hour max"
+      },
+      "plan": {
+        "name": "Plan"
+      },
+      "period_end": {
+        "name": "Period end"
+      }
+    },
+    "binary_sensor": {
+      "limit_reached": {
+        "name": "Limit reached"
+      },
+      "weekly_limit_reached": {
+        "name": "Weekly limit reached"
+      },
+      "five_hour_limit_reached": {
+        "name": "5-hour limit reached"
+      }
+    }
+  }
+}

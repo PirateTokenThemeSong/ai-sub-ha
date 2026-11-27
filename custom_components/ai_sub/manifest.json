@@ -1,0 +1,15 @@
+{
+  "domain": "ai_sub",
+  "name": "AI Sub",
+  "codeowners": [
+    "@PirateTokenThemeSong"
+  ],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/PirateTokenThemeSong/ai-sub-ha",
+  "issue_tracker": "https://github.com/PirateTokenThemeSong/ai-sub-ha/issues",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "requirements": [],
+  "version": "1.0.0"
+}
